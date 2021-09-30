@@ -1,0 +1,14 @@
+<ng-container>
+  <div class="container-search">
+  <h1 class="search-title">Search weather by country name</h1>
+  <input class="search-input" type="text" [(ngModel)]="countrySearch">
+  </div>
+<div class="container-cards">
+  <div class="card" [style.background-image]="'url('+country.flag +')'"
+       *ngFor="let country of mixedFlagsAndCountries | searchCountry : countrySearch"
+       (click)="chooseCapital(country.capital)"
+  >
+    <p class="country-name">{{country.name}}</p>
+  </div>
+</div>
+</ng-container>
